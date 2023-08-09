@@ -16,15 +16,15 @@ app.use((req, res, next) => {
     next();
 });
 
-// Middleware para manejar rutas inexistentes
-app.use((req, res, next) => {
-    res.status(404).json({ message: 'Ruta no encontrada' });
-    next();
-});
-
 // Ruta principal/raiz
 app.get("/", (req, res) => {
     res.send({ Message: "Bienvenidos a la API!!!" });
+});
+
+// Middleware para manejar rutas inexistentes
+app.use((req, res, next) => {
+    res.status(404).json({ Message: 'Ruta no encontrada' });
+    next();
 });
 
 // Iniciar servidor
